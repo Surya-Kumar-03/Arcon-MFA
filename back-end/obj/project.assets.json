@@ -474,11 +474,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work Arcon\\MFA\\webapi\\webapi.csproj",
+      "projectUniqueName": "D:\\Work Arcon\\MFA\\back-end\\webapi.csproj",
       "projectName": "webapi",
-      "projectPath": "D:\\Work Arcon\\MFA\\webapi\\webapi.csproj",
+      "projectPath": "D:\\Work Arcon\\MFA\\back-end\\webapi.csproj",
       "packagesPath": "C:\\Users\\Surya\\.nuget\\packages\\",
-      "outputPath": "D:\\Work Arcon\\MFA\\webapi\\obj\\",
+      "outputPath": "D:\\Work Arcon\\MFA\\back-end\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Surya\\AppData\\Roaming\\NuGet\\NuGet.Config",
