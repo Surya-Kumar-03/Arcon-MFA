@@ -1,3 +1,40 @@
+## Setup
+To get started with the frontend, follow these steps:
+
+1. Navigate to the `front-end` folder:
+```
+cd front-end
+```
+
+2. Install the required dependencies:
+```
+npm install
+```
+
+3. Start the development server:
+```
+npm start
+```
+
+This will start the server on port 3000. You can access the application by opening your browser and visiting `http://localhost:3000`.
+
+To get started with the backend, follow these steps:
+
+1. Navigate to the `back-end` folder:
+```
+cd back-end
+```
+2. Run the server:
+```
+dotnet run
+```
+This will start the server on port 8000. You can access the backend API by sending requests to `http://localhost:8000`.
+
+If you are a developer and want hot refresh while developing, you can use the following command instead:
+```
+dotnet watch run
+```
+
 ## MFA Workflow
 
 1. User enters their username and password.
