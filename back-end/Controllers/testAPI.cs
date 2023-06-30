@@ -8,11 +8,18 @@ namespace testAPI.Controllers
     public class TestAPIController : ControllerBase
     {
         [HttpPost]
-        public IActionResult respondToClient([FromBody] UserDetails userDetails)
+        public IActionResult RespondToClient([FromBody] UserDetails userDetails)
         {
-            System.Console.WriteLine($"{userDetails.os}");
-            System.Console.WriteLine($"{userDetails.browser}");
-            System.Console.WriteLine($"{userDetails.version}");
+            Console.WriteLine($"Received OS: {userDetails.os}");
+            Console.WriteLine($"Received Browser: {userDetails.browser}");
+            Console.WriteLine($"Received Version: {userDetails.version}");
+
+            if (userDetails.latitude != null && userDetails.longitude != null)
+            {
+                Console.WriteLine($"Received Latitude: {userDetails.latitude}");
+                Console.WriteLine($"Received Longitude: {userDetails.longitude}");
+            }
+
             return Ok("Received User Details Successfully!");
         }
     }

@@ -15,22 +15,44 @@ import api from "../api";
 const defaultTheme = createTheme();
 
 function getUserDetails() {
+  // Gets System Related Details
   const userAgent = navigator.userAgent;
-
   const os = userAgent.match(/(Windows|Linux|Mac|Android|iOS)/i)[0];
   const browser = userAgent.match(/(Chrome|Firefox|Safari|Edge|Opera)/i)[0];
   const version = userAgent.match(/\d+\.\d+\.\d+/)[0];
 
-  return {
-    os,
-    browser,
-    version,
-  };
+  // Gets User Location Details (Requires Permission from User)
+  if (navigator.geolocation) {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          resolve({ os, browser, version, latitude, longitude });
+        },
+        (error) => {
+          console.error("Error getting user location:", error);
+          resolve({ os, browser, version }); // Returns without location details
+        }
+      );
+    });
+  }
+
+  return Promise.resolve({ os, browser, version });
 }
 
 export default function SignIn() {
   const [data, setData] = React.useState();
-  const userDetails = getUserDetails();
+  const [userDetails, setUserDetails] = React.useState(null);
+
+  React.useEffect(() => {
+    getUserDetails()
+      .then((details) => {
+        setUserDetails(details);
+      })
+      .catch((error) => {
+        console.error("Error getting user details:", error);
+      });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
