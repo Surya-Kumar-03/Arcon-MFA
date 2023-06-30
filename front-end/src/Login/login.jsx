@@ -14,8 +14,23 @@ import api from "../api";
 
 const defaultTheme = createTheme();
 
+function getUserDetails() {
+  const userAgent = navigator.userAgent;
+
+  const os = userAgent.match(/(Windows|Linux|Mac|Android|iOS)/i)[0];
+  const browser = userAgent.match(/(Chrome|Firefox|Safari|Edge|Opera)/i)[0];
+  const version = userAgent.match(/\d+\.\d+\.\d+/)[0];
+
+  return {
+    os,
+    browser,
+    version,
+  };
+}
+
 export default function SignIn() {
   const [data, setData] = React.useState();
+  const userDetails = getUserDetails();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,7 +42,7 @@ export default function SignIn() {
 
     //Make Call to Back-End
     api
-      .get("/")
+      .post("/", userDetails)
       .then((response) => {
         setData(response.data);
         console.log(response.data);

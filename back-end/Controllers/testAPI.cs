@@ -5,12 +5,15 @@ namespace testAPI.Controllers
 {
     [Route("")]
     [ApiController]
-    public class testAPIController : ControllerBase
+    public class TestAPIController : ControllerBase
     {
-        [HttpGet]
-        public string SayHi()
+        [HttpPost]
+        public IActionResult respondToClient([FromBody] UserDetails userDetails)
         {
-            return "Hello SK";
+            System.Console.WriteLine($"{userDetails.os}");
+            System.Console.WriteLine($"{userDetails.browser}");
+            System.Console.WriteLine($"{userDetails.version}");
+            return Ok("Received User Details Successfully!");
         }
     }
 }
