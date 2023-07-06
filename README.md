@@ -49,7 +49,7 @@ dotnet watch run
    - [ ] Entity type: The system identifies the type of device the user is using (e.g., desktop, mobile, tablet) and adjusts the authentication requirements accordingly.
    - [ ] 3rd-party threat intelligence data: The system checks if the user's IP address or other relevant data is associated with any known malicious activity or security threats.
    - [ ] Day of week and time of day: The system analyzes the current day and time to identify any unusual login patterns or potential anomalies.
-   - [ ] Operating system: The system checks the user's operating system to ensure it is up to date and doesn't have any known vulnerabilities.
+   - [x] Operating system: The system checks the user's operating system to ensure it is up to date and doesn't have any known vulnerabilities.
    - [ ] Source IP address: The system evaluates the user's IP address for any suspicious or blacklisted activity.
    - [ ] User role: Based on the user's role or privileges, the system may require additional verification for certain actions or sensitive data access.
 4. If any of the factors indicate a potential risk or if MFA is required for any other reason, the user is prompted to provide an additional factor for authentication.
