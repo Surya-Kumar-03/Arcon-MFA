@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 using testAPI.Models;
 
 namespace testAPI.Controllers
@@ -10,16 +11,10 @@ namespace testAPI.Controllers
         [HttpPost]
         public IActionResult RespondToClient([FromBody] UserDetails userDetails)
         {
-            Console.WriteLine($"Received OS: {userDetails.os}");
-            Console.WriteLine($"Received Browser: {userDetails.browser}");
-            Console.WriteLine($"Received Version: {userDetails.version}");
+            string jsonString = JsonSerializer.Serialize(userDetails);
 
-            if (userDetails.latitude != null && userDetails.longitude != null)
-            {
-                Console.WriteLine($"Received Latitude: {userDetails.latitude}");
-                Console.WriteLine($"Received Longitude: {userDetails.longitude}");
-            }
-
+            // Print the JSON string to the console.
+            Console.WriteLine(jsonString);
             return Ok("Received User Details Successfully!");
         }
     }
