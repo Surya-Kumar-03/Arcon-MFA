@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-This will start the server on port 3000. You can access the application by opening your browser and visiting `http://localhost:3000`.
+This will start the server on port 4200. You can access the application by opening your browser and visiting `http://localhost:4200`.
 
 To get started with the backend, follow these steps:
 
