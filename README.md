@@ -1,42 +1,3 @@
-## Setup
-To get started with the frontend, follow these steps:
-
-Install Node Version - 14.20.1 & Npm Version - 6.14.17 & .NET SDK & .NET Runtime
-
-1. Navigate to the `front-end` folder:
-```
-cd front-end
-```
-
-2. Install the required dependencies:
-```
-npm install
-```
-
-3. Start the development server:
-```
-npm start
-```
-
-This will start the server on port 4200. You can access the application by opening your browser and visiting `http://localhost:4200`.
-
-To get started with the backend, follow these steps:
-
-1. Navigate to the `back-end` folder:
-```
-cd back-end
-```
-2. Run the server:
-```
-dotnet run
-```
-This will start the server on port 8000. You can access the backend API by sending requests to `http://localhost:8000`.
-
-If you are a developer and want hot refresh while developing, you can use the following command instead:
-```
-dotnet watch run
-```
-
 ## MFA Workflow
 
 1. User enters their username and password.
@@ -58,3 +19,44 @@ dotnet watch run
 7. The system validates the provided MFA factor against the expected value.
 8. If the MFA factor is successfully validated, the user is granted access.
 9. If the MFA factor is invalid, the user is denied access and may be prompted to try again or can be blocked from further access.
+
+
+## Prerequisites:
+Install Node Version - 14.20.1 & Npm Version - 6.14.17 & .NET on your system
+
+## Setup
+To get started with the front-end, follow these steps:
+
+1. Navigate to the `front-end` folder:
+```
+cd front-end
+```
+
+2. Install the required dependencies:
+```
+npm install
+```
+
+3. Start the development server:
+```
+npm start
+```
+
+This will start the server on port 4200. You can access the application by opening your browser and visiting `http://localhost:4200`.
+
+To get started with the back-end, follow these steps:
+
+1. Navigate to the `back-end` folder:
+```
+cd back-end
+```
+2. Run the server:
+```
+dotnet run
+```
+This will start the server on port 8000. You can access the backend API by sending requests to `http://localhost:8000`.
+
+If you are a developer and want a hot refresh while developing, you can use the following command instead:
+```
+dotnet watch run
+```
