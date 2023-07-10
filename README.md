@@ -1,7 +1,7 @@
 ## Setup
 To get started with the frontend, follow these steps:
 
-Install Node Version - 14.20.1 & Npm Version - 6.14.17
+Install Node Version - 14.20.1 & Npm Version - 6.14.17 & .NET SDK
 
 1. Navigate to the `front-end` folder:
 ```
