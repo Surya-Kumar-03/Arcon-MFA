@@ -22,7 +22,7 @@
 
 
 ## Prerequisites:
-Install Node Version - 14.20.1 & Npm Version - 6.14.17 & .NET on your system
+Install Node Version - 14.20.1 & npm Version - 6.14.17 & .NET on your system.
 
 ## Setup
 To get started with the front-end, follow these steps:
