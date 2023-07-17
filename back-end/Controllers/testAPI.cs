@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using testAPI.Models;
+using testAPI.Helpers; // Import the DataContext namespace
 
 namespace testAPI.Controllers
 {
@@ -8,14 +9,33 @@ namespace testAPI.Controllers
     [ApiController]
     public class TestAPIController : ControllerBase
     {
+        private readonly DataContext _dataContext; // Add a private field for DataContext
+
+        public TestAPIController(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
         [HttpPost]
         public IActionResult RespondToClient([FromBody] UserDetails userDetails)
         {
-            string jsonString = JsonSerializer.Serialize(userDetails);
+            // If the received data is valid
+            if (ModelState.IsValid)
+            {
+                // Save userDetails to the database 
+                _dataContext.Users.Add(userDetails);
+                _dataContext.SaveChanges();
 
-            // Print the JSON string to the console.
-            Console.WriteLine(jsonString);
-            return Ok("Received User Details Successfully!");
+                // Prints to Console
+                string jsonString = JsonSerializer.Serialize(userDetails);
+                Console.WriteLine(jsonString);
+
+                return Ok("Received User Details Successfully!");
+            }
+            else
+            {
+                return BadRequest("Invalid data received.");
+            }
         }
     }
 }

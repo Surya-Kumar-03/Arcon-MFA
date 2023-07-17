@@ -1,5 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using testAPI.Helpers;
+
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WebApiDatabase")));
 
 // Add services to the container.
 
