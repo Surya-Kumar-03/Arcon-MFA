@@ -28,8 +28,6 @@ export class UserDetailsService {
       version,
       latitude,
       longitude,
-      dateOfLogin,
-      
     };
   }
 

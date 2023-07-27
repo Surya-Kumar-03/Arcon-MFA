@@ -23,10 +23,13 @@ namespace testAPI.Controllers
             if (ModelState.IsValid)
             {
                 // Save userDetails to the database 
-                _dataContext.Users.Add(userDetails);
-                _dataContext.SaveChanges();
+                // _dataContext.Users.Add(userDetails);
+                // _dataContext.SaveChanges();
 
                 // Prints to Console
+                var userIp = HttpContext.Connection.RemoteIpAddress;
+                Console.WriteLine(userIp);
+
                 string jsonString = JsonSerializer.Serialize(userDetails);
                 Console.WriteLine(jsonString);
 
