@@ -9,6 +9,9 @@ export class UserDetailsService {
     const os = this.getOperatingSystem(userAgent);
     const browser = this.getBrowser(userAgent);
     const version = this.getBrowserVersion(userAgent);
+    const countFailure = 0; //Work on this later
+    const userLevel = 'User'; //Get user details from the database of login
+    const dateOfLogin = new Date();
 
     let latitude, longitude;
     try {
@@ -25,6 +28,8 @@ export class UserDetailsService {
       version,
       latitude,
       longitude,
+      dateOfLogin,
+      
     };
   }
 
