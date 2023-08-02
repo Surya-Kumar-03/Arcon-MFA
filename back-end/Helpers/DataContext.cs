@@ -38,5 +38,6 @@ namespace testAPI.Helpers
         }
 
         public DbSet<UserDetails> Users { get; set; }
+        public DbSet<LocationDetails> Locations { get; set; }
     }
 }

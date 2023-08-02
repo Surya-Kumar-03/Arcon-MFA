@@ -60,3 +60,9 @@ If you are a developer and want a hot refresh while developing, you can use the 
 ```
 dotnet watch run
 ```
+
+```
+dotnet ef migrations add "MigrationName" -c ContextName
+dotnet ef database update -c ContextName
+dotnet ef migrations remove
+```
