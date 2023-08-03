@@ -12,6 +12,6 @@ namespace testAPI.Models
         // public string userLevel { get; set ; }
         // public DateTime DateOfLogin{get ; set;}
         // public string UserIpAddress{ get ; set;}
-        // public string DeviceType{get ; set;}
+        public string DeviceType{get ; set;}
     }
 }

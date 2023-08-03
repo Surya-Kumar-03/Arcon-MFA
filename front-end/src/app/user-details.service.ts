@@ -12,6 +12,7 @@ export class UserDetailsService {
     const countFailure = 0; //Work on this later
     const userLevel = 'User'; //Get user details from the database of login
     const dateOfLogin = new Date();
+    const deviceType = this.getDeviceType(userAgent);
 
     let latitude, longitude;
     try {
@@ -28,6 +29,7 @@ export class UserDetailsService {
       version,
       latitude,
       longitude,
+      deviceType,
     };
   }
 
@@ -79,5 +81,17 @@ export class UserDetailsService {
   private getBrowserVersion(userAgent: string): string {
     const matches = userAgent.match(/\d+\.\d+\.\d+/);
     return matches ? matches[0] : 'Unknown';
+  }
+
+  private getDeviceType(userAgent: string): string {
+    if (/(Android|webos|iphonr|ipad)/i.test(userAgent)) {
+      return 'mobile';
+    } else if (/tablet/i.test(userAgent)) {
+      return 'Tablet';
+    } else if (/Windows/i.test(userAgent)) {
+      return 'desktop';
+    } else {
+      return 'unknown';
+    }
   }
 }
