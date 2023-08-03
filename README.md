@@ -4,14 +4,14 @@
 2. The system checks if the provided credentials are valid.
 3. If the credentials are valid, the system evaluates the following factors:
    - [ ] Consecutive login failures: If the user has experienced multiple consecutive login failures, the system can trigger an MFA challenge as an additional security measure.
-   - [ ] Geo-location: The system determines the physical location of the user based on their IP address or other available location data.
+   - [x] Geo-location: The system determines the physical location of the user based on their IP address or other available location data.
    - [ ] Geo-velocity: The system calculates the distance between the current login attempt and the previous successful login attempt. If the distance is unusually large, it may indicate a potential security risk.
    - [ ] Attempted action: Depending on the sensitivity of the action the user is attempting to perform, the system may require additional verification.
-   - [ ] Entity type: The system identifies the type of device the user is using (e.g., desktop, mobile, tablet) and adjusts the authentication requirements accordingly.
+   - [x] Entity type: The system identifies the type of device the user is using (e.g., desktop, mobile, tablet) and adjusts the authentication requirements accordingly.
    - [ ] 3rd-party threat intelligence data: The system checks if the user's IP address or other relevant data is associated with any known malicious activity or security threats.
    - [ ] Day of week and time of day: The system analyzes the current day and time to identify any unusual login patterns or potential anomalies.
    - [x] Operating system: The system checks the user's operating system to ensure it is up to date and doesn't have any known vulnerabilities.
-   - [ ] Source IP address: The system evaluates the user's IP address for any suspicious or blacklisted activity.
+   - [x] Source IP address: The system evaluates the user's IP address for any suspicious or blacklisted activity.
    - [ ] User role: Based on the user's role or privileges, the system may require additional verification for certain actions or sensitive data access.
 4. If any of the factors indicate a potential risk or if MFA is required for any other reason, the user is prompted to provide an additional factor for authentication.
 5. The system generates and sends an MFA challenge to the user.
@@ -61,8 +61,19 @@ If you are a developer and want a hot refresh while developing, you can use the 
 dotnet watch run
 ```
 
+The application uses Entity-framework core as an ORM for DB Query Generation (Code-First Approach)
+
+To make a migration use the following command:
 ```
-dotnet ef migrations add "MigrationName" -c ContextName
-dotnet ef database update -c ContextName
+dotnet ef migrations add "MigrationName"
+```
+
+To update the SQL Server Database, use the following command:
+```
+dotnet ef database update
+```
+
+To undo a migration, use the following command:
+```
 dotnet ef migrations remove
 ```
